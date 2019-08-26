@@ -7,14 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff195755-a136-4187-8a45-d70beae69837" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Solv3_jar/Solv3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Solv3_jar/Solv3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Solv3_jar/table2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Solv3_jar/table2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/my/nvinz/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/nvinz/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/my/nvinz/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/nvinz/Solver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/my/nvinz/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/my/nvinz/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/my/nvinz/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/my/nvinz/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.32794118" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
