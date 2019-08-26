@@ -15,7 +15,6 @@ import java.util.regex.Pattern;
 public class Solver {
 
     Table<String, String, Integer> table;
-    Table<String, String, Integer> newTable;
 
     public Solver() throws IOException {
         table = TreeBasedTable.create();
@@ -29,8 +28,6 @@ public class Solver {
             System.out.println("Incorrect data in col " + checkCols());
         else
             System.out.println("Table Correct");
-
-        newTable = table;
     }
 
     void openAndParse() throws IOException {
@@ -102,6 +99,78 @@ public class Solver {
             }
         }
         return -1;
+    }
+
+    /*
+     * If a possible number is already in a row
+     */
+    public boolean isInRow(int row, int num){
+        for (int i = 0; i < 9; i++){
+            if (table.get("row"+row, "col"+i) == num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*
+     * If a possible number is already in a column
+     */
+    public boolean isInCol(int col, int num){
+        for (int i = 0; i < 9; i++){
+            if (table.get("row"+i, "col"+col) == num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*
+     * If a possible number is already in 3x3 box
+     */
+    public boolean isInBox(int row, int col, int num){
+        int r = row - row % 3;
+        int c = col - col % 3;
+        for (int i = r; i < r+3; i++) {
+            for (int j = c; j < c+3; j++) {
+                if (table.get("row"+i, "col"+j) == num){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /*
+     *  Check if a number possible to a row, col & box position is ok
+     */
+    private boolean isOk(int row, int col, int num){
+        return !isInRow(row, num)  &&  !isInCol(col, num)  &&  !isInBox(row, col, num);
+    }
+
+    /*
+     *  Recursive BackTracking algorithm
+     */
+    public boolean solve(){
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (table.get("row"+i, "col"+j) == 0){
+                    for (int num = 1; num <= 9; num++) {
+                        if (isOk(i, j, num)) {
+                            table.put("row"+i, "col"+j, num);
+                            if (solve()){
+                                return true;
+                            }
+                            else{
+                                table.put("row"+i, "col"+j, 0);
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void print(){
