@@ -1,28 +1,26 @@
 package my.nvinz;
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.videoio.VideoCapture;
-
 import java.io.IOException;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Solver solver = new Solver();
+        /*Solver solver = new Solver();
 
-        /*if (solver.solve()) {
-            System.out.println("> Solved");
-            solver.print();
-        } else {
-            System.out.println("> Unsolvable");
+        try {
+            if (solver.solve()) {
+                System.out.println("> Solved");
+                solver.print();
+            } else {
+                System.out.println("> Unsolvable");
+            }
+        }
+        catch (NullPointerException e){
+            System.out.println("Null pointer (Main.java): " + e);
         }*/
 
-
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        VideoCapture capture = new VideoCapture(0);
-        Mat matrix = new Mat();
-        capture.read(matrix);
-
+        Vision vision = new Vision();
+        vision.start();
     }
 }

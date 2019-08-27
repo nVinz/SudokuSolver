@@ -7,11 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff195755-a136-4187-8a45-d70beae69837" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solv3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Solv3_jar/Solv3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Solv3_jar/Solv3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/my/nvinz/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/nvinz/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/my/nvinz/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/nvinz/Solver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/my/nvinz/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/my/nvinz/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/my/nvinz/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/my/nvinz/Solver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,11 +44,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1PxKTkQMHJ3329w39GJY87srklM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="left" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="right" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="264" />
+    <property name="last_opened_file_path" value="D:/Dev/java-opencv3-swing-master" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.32794118" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -53,6 +62,7 @@
     <option name="myCommands">
       <command value="mvn package" />
       <command value="mvn compile" />
+      <command value="mvn import" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -124,7 +134,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

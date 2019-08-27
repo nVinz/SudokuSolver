@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.util.regex.Pattern;
 
@@ -19,21 +20,45 @@ public class Solver {
     public Solver() throws IOException {
         table = TreeBasedTable.create();
 
-        openAndParse();
+        try{
+            openAndParse();
+        }
+        catch (IOException e) {
+            System.out.println("Error opening file (Solver.java): " + e);
+            return;
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Format error (Solver.java): " + e);
+            return;
+        }
+        catch (NullPointerException e){
+            System.out.println("Null pointer (Solver.java): " + e);
+        }
+
         print();
 
-        if (checkRows() != -1)
+        if (checkRows() != -1) {
             System.out.println("Incorrect data in row " + checkRows());
-        else if (checkCols() != -1)
+            return;
+        }
+        else if (checkCols() != -1){
             System.out.println("Incorrect data in col " + checkCols());
+            return;
+        }
         else
             System.out.println("Table Correct");
     }
 
-    void openAndParse() throws IOException {
+    /*
+     *  Open and parse csv file into table
+     */
+    private void openAndParse() throws IOException {
         String csvFile = "";
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.csv", "csv");
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\user\\Documents\\Solv3\\out\\artifacts\\Solv3_jar"));
+        fileChooser.setFileFilter(filter);
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\user"));
+
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
@@ -43,7 +68,7 @@ public class Solver {
         Scanner scanner = new Scanner(new File(csvFile));
         scanner.useDelimiter(Pattern.compile("([\n;]|(\r\n))+"));
 
-        int i = 0, j = 0;
+        int i, j = 0;
         while (scanner.hasNext())
         {
             for (i = 0; i < 9; i++) {
@@ -55,11 +80,12 @@ public class Solver {
         scanner.close();
     }
 
-    /*  Check rows for duplicates
+    /*
+     *   Check rows for duplicates
      *   -1 (true) = correct
      *   other (false) = contains
      */
-    public int checkRows(){
+    private int checkRows(){
         for (int i = 0; i < 9; i++) {
             Map<String, Integer> rowMap = table.row("row"+i);
             List<Integer> rowValues = new ArrayList();
@@ -70,7 +96,6 @@ public class Solver {
             }
 
             Set<Integer> set = new HashSet<Integer>(rowValues);
-
             if(set.size() < rowValues.size()){
                 return i;
             }
@@ -78,11 +103,12 @@ public class Solver {
         return -1;
     }
 
-    /*  Check columns for duplicates
+    /*
+    *   Check columns for duplicates
     *   -1 (true) = correct
     *   other (false) = contains
     */
-    public int checkCols(){
+    private int checkCols(){
         for (int i = 0; i < 9; i++) {
             Map<String, Integer> rowMap = table.column("col"+i);
             List<Integer> colValues = new ArrayList();
@@ -93,7 +119,6 @@ public class Solver {
             }
 
             Set<Integer> set = new HashSet<Integer>(colValues);
-
             if(set.size() < colValues.size()){
                 return i;
             }
@@ -104,7 +129,7 @@ public class Solver {
     /*
      * If a possible number is already in a row
      */
-    public boolean isInRow(int row, int num){
+    private boolean isInRow(int row, int num){
         for (int i = 0; i < 9; i++){
             if (table.get("row"+row, "col"+i) == num){
                 return true;
@@ -116,7 +141,7 @@ public class Solver {
     /*
      * If a possible number is already in a column
      */
-    public boolean isInCol(int col, int num){
+    private boolean isInCol(int col, int num){
         for (int i = 0; i < 9; i++){
             if (table.get("row"+i, "col"+col) == num){
                 return true;
@@ -128,7 +153,7 @@ public class Solver {
     /*
      * If a possible number is already in 3x3 box
      */
-    public boolean isInBox(int row, int col, int num){
+    private boolean isInBox(int row, int col, int num){
         int r = row - row % 3;
         int c = col - col % 3;
         for (int i = r; i < r+3; i++) {
@@ -173,6 +198,9 @@ public class Solver {
         return true;
     }
 
+    /*
+     *  Print final result
+     */
     public void print(){
         int j, c0 = 1, c1 = 1;
         System.out.println(" col | 0 1 2 | 3 4 5 | 6 7 8 |");
